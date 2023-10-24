@@ -1,8 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
+import "../style/App.css";
 
 function Model(props) {
-  const { scene } = useGLTF("/3d-objects/Formula1.gltf");
+  const { scene } = useGLTF("/3d-objects/ghost_character.glb");
   return <primitive object={scene} {...props} />;
 }
 
