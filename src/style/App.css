@@ -1,1 +1,18 @@
-
+body {
+  background: rgb(221, 238, 174);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(221, 238, 174, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(221, 238, 174, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(221, 238, 174, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
