@@ -37,7 +37,7 @@ const App = () => {
       </div>
       <Canvas style={{ position: "absolute" }}>
         <OrbitControls />
-        <ambientLight intensity={1.0} />
+        <ambientLight intensity={5.5} />
         <Stars />
         <spotLight position={[10, 15, 10]} angle={0.3} />
         {loadingError ? (
