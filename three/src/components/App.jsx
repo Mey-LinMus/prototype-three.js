@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { OrbitControls, Stars, Cloud } from "@react-three/drei";
 import Modelfile from "./Models";
 import "../App.css";
 
@@ -21,11 +21,11 @@ const App = () => {
     {
       name: "Animal Album",
       models: [
-        { name: "Cat", path: "/cat.glb" },
-        { name: "Turtle", path: "/turtle.glb" },
-        { name: "Mink", path: "/mink.glb" },
-        { name: "leopard", path: "leopard.glb" },
-      
+        { name: "Cat", path: "cat.glb" },
+        { name: "Turtle", path: "turtle.glb" },
+        { name: "Mink", path: "mink.glb" },
+        { name: "Leopard", path: "leopard.glb" },
+        { name: "Dog", path: "dog.glb" },
       ],
     },
     // Add more albums as needed
@@ -42,7 +42,7 @@ const App = () => {
         {albums.map((album, index) => (
           <button
             key={index}
-            className="album-button"
+            className="album-button button"
             onClick={() => setSelectedAlbum(album)}
           >
             {album.name}
@@ -54,7 +54,7 @@ const App = () => {
           selectedAlbum.models.map((model, index) => (
             <button
               key={index}
-              className="model-button"
+              className="model-button button"
               onClick={() => loadModel(model.path)}
             >
               {model.name}
@@ -64,7 +64,18 @@ const App = () => {
       <Canvas style={{ position: "absolute" }}>
         <OrbitControls />
         <ambientLight intensity={5.5} />
-        <Stars />
+        <Stars
+          radius={50}
+          depth={50}
+          count={5000}
+          factor={4}
+          saturation={0}
+          fade
+          speed={1}
+        />
+
+        {/* <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="orange" /> */}
+
         <spotLight position={[10, 15, 10]} angle={0.3} />
         {loadingError ? (
           <div className="error-message">{loadingError}</div>
