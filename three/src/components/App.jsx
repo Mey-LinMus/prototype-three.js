@@ -11,7 +11,7 @@ const App = () => {
 
   const albums = [
     {
-      name: "Spiderman Album",
+      name: "Spiderman Album:",
       models: [
         { name: "Portal", path: "/spiders_portal.glb" },
         { name: "Spider-man", path: "/spider-man.glb" },
@@ -19,7 +19,7 @@ const App = () => {
       ],
     },
     {
-      name: "Animal Album",
+      name: "Animal Album:",
       models: [
         { name: "Cat", path: "cat.glb" },
         { name: "Turtle", path: "turtle.glb" },

@@ -12,7 +12,7 @@ const HamburgerMenu = ({ albums,  loadModel }) => {
             {album.models.map((model, modelIndex) => (
               <button
                 key={modelIndex}
-                className="model-button button"
+                className="model-button"
                 onClick={() => loadModel(model.path)}
               >
                 {model.name}

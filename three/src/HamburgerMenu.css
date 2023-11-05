@@ -7,7 +7,7 @@
 }
 
 .bm-burger-bars {
-  background: #001ea5;
+  background: #1e1d1d;
   border-radius: 20px;
 }
 
@@ -17,11 +17,11 @@
 }
 
 .bm-cross {
-  background: #bdc3c7;
+  background: #1e1d1d;
 }
 
 .bm-menu {
-  background: #0b184b;
+  background: rgb(114, 175, 245);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -31,7 +31,7 @@
 }
 
 .bm-item-list {
-  color: #fffffe;
+  color: #1e1d1d;
 }
 
 .bm-item {
@@ -45,10 +45,23 @@
 
 .bm-menu {
   overflow-y: hidden;
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .bm-menu::-webkit-scrollbar {
-  width: 0; 
+  width: 0;
+}
+
+.model-button {
+  background-color: rgb(253, 253, 253);
+  border: none;
+  border-radius: 5px;
+  margin: 2px 3px;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+.album-menu p {
+  font-weight: 500;
 }
