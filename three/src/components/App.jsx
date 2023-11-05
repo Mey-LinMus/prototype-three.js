@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars, Cloud } from "@react-three/drei";
+import { OrbitControls, Stars } from "@react-three/drei";
 import Modelfile from "./Models";
 import "../App.css";
+import HamburgerMenu from "./HamburgerMenu"; 
 
 const App = () => {
   const [selectedModel, setSelectedModel] = useState(null);
   const [loadingError, setLoadingError] = useState(null);
-  const [selectedAlbum, setSelectedAlbum] = useState(null);
 
   const albums = [
     {
@@ -32,35 +32,15 @@ const App = () => {
   ];
 
   const loadModel = (modelPath) => {
-    setSelectedModel(modelPath);
-    setLoadingError(null);
+    if (modelPath !== selectedModel) {
+      setSelectedModel(modelPath);
+      setLoadingError(null);
+    }
   };
 
   return (
     <div>
-      <div className="album-selector">
-        {albums.map((album, index) => (
-          <button
-            key={index}
-            className="album-button button"
-            onClick={() => setSelectedAlbum(album)}
-          >
-            {album.name}
-          </button>
-        ))}
-      </div>
-      <div className="model-selector">
-        {selectedAlbum &&
-          selectedAlbum.models.map((model, index) => (
-            <button
-              key={index}
-              className="model-button button"
-              onClick={() => loadModel(model.path)}
-            >
-              {model.name}
-            </button>
-          ))}
-      </div>
+      <HamburgerMenu albums={albums} loadModel={loadModel} /> {/* Add the HamburgerMenu component */}
       <Canvas style={{ position: "absolute" }}>
         <OrbitControls />
         <ambientLight intensity={5.5} />
@@ -73,8 +53,6 @@ const App = () => {
           fade
           speed={1}
         />
-
-        {/* <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="orange" /> */}
 
         <spotLight position={[10, 15, 10]} angle={0.3} />
         {loadingError ? (

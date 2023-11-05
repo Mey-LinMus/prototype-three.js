@@ -19,23 +19,7 @@ body {
   height: 100vh;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
 
-.button {
-  background-color: #3498db;
-  color: #fff;
-  padding: 8px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 3px;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0074b7;
+.menu::-webkit-scrollbar {
+  display: none;
 }
