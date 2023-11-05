@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import Modelfile from "./Models";
 import "../App.css";
-import HamburgerMenu from "./HamburgerMenu"; 
+import HamburgerMenu from "./HamburgerMenu";
 
 const App = () => {
   const [selectedModel, setSelectedModel] = useState(null);
@@ -13,21 +13,29 @@ const App = () => {
     {
       name: "Spiderman Album:",
       models: [
-        { name: "Portal", path: "/spiders_portal.glb" },
-        { name: "Spider-man", path: "/spider-man.glb" },
-        { name: "Spider-man 2099", path: "/spider-man_2099_.glb" },
+        { name: "Portal", path: "models/spiders_portal.glb" },
+        { name: "Spider-man", path: "models/spider-man.glb" },
+        { name: "Spider-man 2099", path: "models/spider-man_2099_.glb" },
+        { name: "Spider-man ani", path: "models/spider-man_no_way_home.glb" },
       ],
     },
     {
       name: "Animal Album:",
       models: [
-        { name: "Cat", path: "cat.glb" },
-        { name: "Turtle", path: "turtle.glb" },
-        { name: "Mink", path: "mink.glb" },
-        { name: "Leopard", path: "leopard.glb" },
-        { name: "Dog", path: "dog.glb" },
+        { name: "Cat", path: "models/cat.glb" },
+        { name: "Turtle", path: "models/turtle.glb" },
+        { name: "Mink", path: "models/mink.glb" },
+        { name: "Leopard", path: "models/leopard.glb" },
+        { name: "Dog", path: "models/dog.glb" },
       ],
     },
+    {
+      name: "Rooms Album:",
+      models: [
+        { name: "Victorian Hallway", path: "models/victorian_hallway.glb" },
+      ],
+    },
+
     // Add more albums as needed
   ];
 
@@ -40,7 +48,8 @@ const App = () => {
 
   return (
     <div>
-      <HamburgerMenu albums={albums} loadModel={loadModel} /> {/* Add the HamburgerMenu component */}
+      <HamburgerMenu albums={albums} loadModel={loadModel} />{" "}
+      {/* Add the HamburgerMenu component */}
       <Canvas style={{ position: "absolute" }}>
         <OrbitControls />
         <ambientLight intensity={5.5} />
