@@ -3,6 +3,9 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import Modelfile from "./Models";
 import "../App.css";
+import Room from "./Room";
+import UndergroundRoom from "./UndergroundRoom";
+import CyberpunkRoom from "./CyberpunkRoom";
 import HamburgerMenu from "./HamburgerMenu";
 
 const App = () => {
@@ -32,11 +35,12 @@ const App = () => {
     {
       name: "Rooms Album:",
       models: [
-        { name: "Victorian Hallway", path: "models/victorian_hallway.glb" },
+        { name: "Victorian Hallway", path: <Room /> },
+        { name: "Underground Room", path: <UndergroundRoom /> },
+        { name: "Cyberpunk Room", path: <CyberpunkRoom /> },
+        { name: "Modern Living", path: "models/modern_living_room.glb" },
       ],
     },
-
-    // Add more albums as needed
   ];
 
   const loadModel = (modelPath) => {
@@ -48,8 +52,7 @@ const App = () => {
 
   return (
     <div>
-      <HamburgerMenu albums={albums} loadModel={loadModel} />{" "}
-      {/* Add the HamburgerMenu component */}
+      <HamburgerMenu albums={albums} loadModel={loadModel} />
       <Canvas style={{ position: "absolute" }}>
         <OrbitControls />
         <ambientLight intensity={5.5} />
@@ -62,17 +65,19 @@ const App = () => {
           fade
           speed={1}
         />
-
         <spotLight position={[10, 15, 10]} angle={0.3} />
         {loadingError ? (
           <div className="error-message">{loadingError}</div>
         ) : (
-          selectedModel && (
+          selectedModel &&
+          (typeof selectedModel === "string" ? (
             <Modelfile
               modelPath={selectedModel}
               onError={(error) => setLoadingError(error.message)}
             />
-          )
+          ) : (
+            selectedModel
+          ))
         )}
       </Canvas>
     </div>
