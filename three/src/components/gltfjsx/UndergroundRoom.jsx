@@ -9,20 +9,22 @@ Title: Isometric Underground Room
 
 import React, { useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
-import "../styles/Models.css";
+import "../../styles/Models.css";
 
 const UndergroundRoom = (props) => {
   const { nodes, materials } = useGLTF("models/underground_room.glb");
   const [cleanMess, setCleanMess] = useState(true);
 
-  const toggleLights = () => {
+  const cleanRoom = () => {
     setCleanMess(!cleanMess);
   };
 
   return (
     <>
       <Html className="text">
-        <button onClick={toggleLights} className="action-button">Clean</button>
+        <button onClick={cleanRoom} className="action-button">
+          Clean
+        </button>
       </Html>
       <group {...props} dispose={null}>
         {cleanMess && (

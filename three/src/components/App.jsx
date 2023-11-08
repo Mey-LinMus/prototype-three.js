@@ -3,9 +3,9 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import Modelfile from "./Models";
 import "../styles/App.css";
-import Room from "./Room";
-import UndergroundRoom from "./UndergroundRoom";
-import CyberpunkRoom from "./CyberpunkRoom";
+import VictorianHallway from "./gltfjsx/VictorianHallway";
+import UndergroundRoom from "./gltfjsx/UndergroundRoom";
+import CyberpunkRoom from "./gltfjsx/CyberpunkRoom";
 import HamburgerMenu from "./HamburgerMenu";
 
 const App = () => {
@@ -37,7 +37,7 @@ const App = () => {
     {
       name: "Rooms Album:",
       models: [
-        { name: "Victorian Hallway", path: <Room /> },
+        { name: "Victorian Hallway", path: <VictorianHallway /> },
         { name: "Underground Room", path: <UndergroundRoom /> },
         { name: "Cyberpunk Room", path: <CyberpunkRoom /> },
         { name: "Modern Living", path: "models/modern_living_room.glb" },
