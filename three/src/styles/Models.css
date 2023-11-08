@@ -1,0 +1,13 @@
+.text {
+  width: 400px;
+  margin-top: 150px;
+}
+
+.action-button {
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: rgb(196, 219, 255);
+}

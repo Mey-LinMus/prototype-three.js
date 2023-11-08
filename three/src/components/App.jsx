@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import Modelfile from "./Models";
-import "../App.css";
+import "../styles/App.css";
 import Room from "./Room";
 import UndergroundRoom from "./UndergroundRoom";
 import CyberpunkRoom from "./CyberpunkRoom";
-import Spiderman from "./Spiderman";
 import HamburgerMenu from "./HamburgerMenu";
 
 const App = () => {
@@ -20,7 +19,7 @@ const App = () => {
         { name: "Portal", path: "models/spiders_portal.glb" },
         {
           name: "Spider-man",
-          path: <Spiderman />,
+          path: "models/spider-man.glb",
         },
         { name: "Spider-man 2099", path: "models/spider-man_2099_.glb" },
       ],

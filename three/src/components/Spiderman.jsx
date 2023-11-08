@@ -5,17 +5,10 @@ const Spiderman = ({ src }) => {
   return (
     <Html center>
       <iframe
-        title="Spider-man (Spider-man: No way Home)"
-        frameBorder="0"
-        allowFullScreen
-        mozallowfullscreen="true"
-        webkitallowfullscreen="true"
-        allow="autoplay; fullscreen; xr-spatial-tracking"
-        xr-spatial-tracking
-        execution-while-out-of-viewport
-        execution-while-not-rendered
-        web-share
-        src="https://sketchfab.com/models/2cb11e591cc44357bffc6e23931a78e2/embed"
+        title="Spiderman"
+        frameborder="0"
+        allow="autoplay; fullscreen; vr; xr; xr-spatial-tracking"
+        src="https://sketchfab.com/models/476522e7076c4763a7e3ca4731e0add9/embed?transparent=1"
       ></iframe>
     </Html>
   );
