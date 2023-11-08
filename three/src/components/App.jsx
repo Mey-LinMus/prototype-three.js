@@ -67,7 +67,6 @@ const App = () => {
           fade
           speed={1}
         />
-        <spotLight position={[10, 15, 10]} angle={0.3} />
         {loadingError ? (
           <div className="error-message">{loadingError}</div>
         ) : (

@@ -7,7 +7,7 @@ Source: https://sketchfab.com/3d-models/victorian-hallway-diorama-1e20facf9cf14d
 Title: Victorian Hallway Diorama
 */
 
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import "../../styles/Models.css";
 
@@ -16,6 +16,12 @@ const Room = (props) => {
   const [changeColor, setChangeColor] = useState(false);
 
   const ChangeColor = () => {
+    // Toggle wall color between red and blue
+    if (changeColor) {
+      materials.wall_old_environmentwallpaper_MAT.color.set(0xff0000); 
+    } else {
+      materials.wall_old_environmentwallpaper_MAT.color.set(0x0000ff); 
+    }
     setChangeColor(!changeColor);
   };
 
@@ -23,7 +29,7 @@ const Room = (props) => {
     <>
       <Html className="text">
         <button onClick={ChangeColor} className="action-button">
-         Change wall collor
+          Change wall collor
         </button>
       </Html>
       <group {...props} dispose={null}>
