@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useGLTF } from "@react-three/drei";
 
 const CyberpunkRoom = (props) => {

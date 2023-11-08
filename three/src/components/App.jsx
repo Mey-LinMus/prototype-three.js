@@ -6,6 +6,7 @@ import "../App.css";
 import Room from "./Room";
 import UndergroundRoom from "./UndergroundRoom";
 import CyberpunkRoom from "./CyberpunkRoom";
+import Spiderman from "./Spiderman";
 import HamburgerMenu from "./HamburgerMenu";
 
 const App = () => {
@@ -17,9 +18,11 @@ const App = () => {
       name: "Spiderman Album:",
       models: [
         { name: "Portal", path: "models/spiders_portal.glb" },
-        { name: "Spider-man", path: "models/spider-man.glb" },
+        {
+          name: "Spider-man",
+          path: <Spiderman />,
+        },
         { name: "Spider-man 2099", path: "models/spider-man_2099_.glb" },
-        { name: "Spider-man ani", path: "models/spider-man_no_way_home.glb" },
       ],
     },
     {
