@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { OrbitControls, Stars, Sky, Cloud } from "@react-three/drei";
 import Modelfile from "./Models";
 import "../styles/App.css";
 import VictorianHallway from "./gltfjsx/VictorianHallway";
@@ -57,6 +57,22 @@ const App = () => {
       <HamburgerMenu albums={albums} loadModel={loadModel} />
       <Canvas style={{ position: "absolute" }}>
         <OrbitControls />
+
+        <Sky
+          distance={50000}
+          sunPosition={[0, 5, 0]}
+          inclination={1}
+          azimuth={0.5}
+        />
+
+        <Cloud
+          segments={90}
+          bounds={[100, 100, 100]}
+          volume={4}
+          color="#FEF9E7"
+          fade={600}
+        />
+
         <ambientLight intensity={5.5} />
         <Stars
           radius={50}
