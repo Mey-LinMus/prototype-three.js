@@ -26,7 +26,7 @@ const CanvasContainer = ({
         azimuth={[-Math.PI / 4, Math.PI / 4]}
       >
         <OrbitControls />
-
+     
         <Sky
           distance={450000}
           inclination={0.35}

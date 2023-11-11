@@ -1,17 +1,12 @@
-import React from "react";
-import { useGLTF } from "@react-three/drei";
+import React, { useRef } from "react";
+import { useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
 
-const GLTFLoader = (props) => {
-  const { scene } = useGLTF(props.modelPath);
+const GLTFLoaderComponent = (props) => {
+  const gltf = useLoader(GLTFLoader, props.modelPath);
+  const group = useRef();
 
-  return (
-    <primitive
-      object={scene}
-      position={[0, 0, 0]}
-      scale={[1, 1, 1]}
-      {...props}
-    />
-  );
+  return <primitive object={gltf.scene} ref={group} {...props} />;
 };
 
-export default GLTFLoader;
+export default GLTFLoaderComponent;
