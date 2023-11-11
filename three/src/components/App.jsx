@@ -6,6 +6,8 @@ import VictorianHallway from "../gltfjsx/VictorianHallway";
 import UndergroundRoom from "../gltfjsx/UndergroundRoom";
 import CyberpunkRoom from "../gltfjsx/CyberpunkRoom";
 import Kitchen from "../gltfjsx/Kitchen";
+import FuturSpiderman from "../gltfjsx/FuturSpiderman";
+import Spiderman from "../gltfjsx/Spiderman";
 
 const App = () => {
   const [selectedModel, setSelectedModel] = useState(null);
@@ -16,11 +18,8 @@ const App = () => {
       name: "Spiderman Album:",
       models: [
         { name: "Portal", path: "models/spiders_portal.glb" },
-        {
-          name: "Spider-man",
-          path: "models/spider-man.glb",
-        },
-        { name: "Spider-man 2099", path: "models/spider-man_2099_.glb" },
+        { name: "Spider-man", path: <Spiderman /> },
+        { name: "Spider-man 2099", path: <FuturSpiderman /> },
       ],
     },
     {

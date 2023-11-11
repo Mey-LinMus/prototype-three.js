@@ -26,14 +26,18 @@ const CanvasContainer = ({
         azimuth={[-Math.PI / 4, Math.PI / 4]}
       >
         <OrbitControls />
-     
+
         <Sky
           distance={450000}
-          inclination={0.35}
-          sunPosition={[0, 5, 0]}
-          sunColor="black"
-          groundColor="#003366"
+          inclination={0}
+          azimuth={-180}
+          rayleigh={5}
+          turbidity={10}
+          mieCoefficient={0.01}
+          sunPosition={[20, 0, 10]}
         />
+        <hemisphereLight args={[0x606060, 0x404040]} />
+        <directionalLight position={[1, 1, 1]} />
 
         <Cloud
           segments={90}
@@ -43,7 +47,7 @@ const CanvasContainer = ({
           fade={600}
         />
 
-        <ambientLight intensity={5.5} />
+        <ambientLight intensity={5} />
         <Stars
           radius={50}
           depth={50}
