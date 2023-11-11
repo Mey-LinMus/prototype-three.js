@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import CanvasContainer from "./CanvasContainer";
 import ModelLoader from "./ModelLoader";
 import "../styles/App.css";
-import VictorianHallway from "./gltfjsx/VictorianHallway";
-import UndergroundRoom from "./gltfjsx/UndergroundRoom";
-import CyberpunkRoom from "./gltfjsx/CyberpunkRoom";
-import Kitchen from "./gltfjsx/Kitchen";
+import VictorianHallway from "../gltfjsx/VictorianHallway";
+import UndergroundRoom from "../gltfjsx/UndergroundRoom";
+import CyberpunkRoom from "../gltfjsx/CyberpunkRoom";
+import Kitchen from "../gltfjsx/Kitchen";
 
 const App = () => {
   const [selectedModel, setSelectedModel] = useState(null);

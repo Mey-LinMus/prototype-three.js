@@ -9,7 +9,7 @@ Title: Victorian Hallway Diorama
 
 import React, { useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
-import "../../styles/Models.css";
+import "../styles/Models.css";
 
 const Room = (props) => {
   const { nodes, materials } = useGLTF("models/victorian_hallway.glb");

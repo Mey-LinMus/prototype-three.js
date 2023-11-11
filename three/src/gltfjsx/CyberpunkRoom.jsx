@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
-import "../../styles/Models.css";
+import "../styles/Models.css";
+
 
 const CyberpunkRoom = (props) => {
   const { nodes, materials } = useGLTF("models/cyberpunk_room.glb");
