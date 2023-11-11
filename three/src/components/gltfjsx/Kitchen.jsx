@@ -7,8 +7,9 @@ Source: https://sketchfab.com/3d-models/evening-routine-f657483a227b4571951ccb45
 Title: Evening Routine
 */
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useGLTF, Html } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 const Kitchen = (props) => {
   const { nodes, materials } = useGLTF("models/kitchen.glb");
@@ -17,6 +18,16 @@ const Kitchen = (props) => {
   const Movechair = () => {
     takeSeat(!seat);
   };
+
+  // Clock
+
+  const [clockHandsRotation, setClockHandsRotation] = useState(0);
+  const clockHandsRef = useRef();
+
+  useFrame(() => {
+    setClockHandsRotation((prevRotation) => prevRotation + 0.005);
+    clockHandsRef.current.rotation.y = clockHandsRotation;
+  });
 
   return (
     <group {...props} dispose={null}>
@@ -27,43 +38,43 @@ const Kitchen = (props) => {
       </Html>
 
       {/* Chair left */}
-   
-        <group position={seat ? [4.9, 1.524, -0.684] : [4.062, 1.524, -0.684]}>
-          <mesh
-            geometry={nodes.Object_4.geometry}
-            material={materials.black_plactic_stove}
-          />
-          <mesh
-            geometry={nodes.Object_6.geometry}
-            material={materials.metal_black_stove}
-            position={[-0.138, -0.907, -0.493]}
-            rotation={[-Math.PI, 1.298, -Math.PI]}
-          />
-          <mesh
-            geometry={nodes.Object_8.geometry}
-            material={materials.metal_black_stove}
-            position={[-0.493, -0.907, 0.138]}
-            rotation={[-Math.PI, -0.273, -Math.PI]}
-          />
-          <mesh
-            geometry={nodes.Object_10.geometry}
-            material={materials.metal_black_stove}
-            position={[0.138, -0.907, 0.493]}
-            rotation={[0, -1.298, 0]}
-          />
-          <mesh
-            geometry={nodes.Object_12.geometry}
-            material={materials.metal_black_stove}
-            position={[0.493, -0.907, -0.138]}
-            rotation={[0, 0.273, 0]}
-          />
-          <mesh
-            geometry={nodes.Object_14.geometry}
-            material={materials.metal_black_stove}
-            position={[0, -0.943, 0]}
-            rotation={[0, 0.273, 0]}
-          />
-        </group>
+
+      <group position={seat ? [4.9, 1.524, -0.684] : [4.062, 1.524, -0.684]}>
+        <mesh
+          geometry={nodes.Object_4.geometry}
+          material={materials.black_plactic_stove}
+        />
+        <mesh
+          geometry={nodes.Object_6.geometry}
+          material={materials.metal_black_stove}
+          position={[-0.138, -0.907, -0.493]}
+          rotation={[-Math.PI, 1.298, -Math.PI]}
+        />
+        <mesh
+          geometry={nodes.Object_8.geometry}
+          material={materials.metal_black_stove}
+          position={[-0.493, -0.907, 0.138]}
+          rotation={[-Math.PI, -0.273, -Math.PI]}
+        />
+        <mesh
+          geometry={nodes.Object_10.geometry}
+          material={materials.metal_black_stove}
+          position={[0.138, -0.907, 0.493]}
+          rotation={[0, -1.298, 0]}
+        />
+        <mesh
+          geometry={nodes.Object_12.geometry}
+          material={materials.metal_black_stove}
+          position={[0.493, -0.907, -0.138]}
+          rotation={[0, 0.273, 0]}
+        />
+        <mesh
+          geometry={nodes.Object_14.geometry}
+          material={materials.metal_black_stove}
+          position={[0, -0.943, 0]}
+          rotation={[0, 0.273, 0]}
+        />
+      </group>
 
       <group position={[4.062, 1.524, -2.856]} rotation={[0, 0.698, 0]}>
         <mesh
@@ -422,12 +433,15 @@ const Kitchen = (props) => {
           rotation={[0, Math.PI / 3, 0]}
           scale={[1, 9.625, 1]}
         />
+        {/* minute hand */}
         <mesh
+          ref={clockHandsRef}
           geometry={nodes.Object_136.geometry}
           material={materials.clock_black}
           position={[0, 1.207, 0]}
           scale={[1, 9.625, 1]}
         />
+        {/* Hour hand */}
         <mesh
           geometry={nodes.Object_138.geometry}
           material={materials.clock_black}
