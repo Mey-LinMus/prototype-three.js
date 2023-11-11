@@ -7,50 +7,64 @@ Source: https://sketchfab.com/3d-models/evening-routine-f657483a227b4571951ccb45
 Title: Evening Routine
 */
 
-import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import React, { useState } from "react";
+import { useGLTF, Html } from "@react-three/drei";
 
 const Kitchen = (props) => {
   const { nodes, materials } = useGLTF("models/kitchen.glb");
+  const [seat, takeSeat] = useState(false);
+
+  const Movechair = () => {
+    takeSeat(!seat);
+  };
+
   return (
     <group {...props} dispose={null}>
+      <Html className="text">
+        <button onClick={Movechair} className="action-button">
+          {seat ? "Stand up" : "Have a seat"}
+        </button>
+      </Html>
+
       {/* Chair left */}
-      <group position={[4.062, 1.524, -0.684]}>
-        <mesh
-          geometry={nodes.Object_4.geometry}
-          material={materials.black_plactic_stove}
-        />
-        <mesh
-          geometry={nodes.Object_6.geometry}
-          material={materials.metal_black_stove}
-          position={[-0.138, -0.907, -0.493]}
-          rotation={[-Math.PI, 1.298, -Math.PI]}
-        />
-        <mesh
-          geometry={nodes.Object_8.geometry}
-          material={materials.metal_black_stove}
-          position={[-0.493, -0.907, 0.138]}
-          rotation={[-Math.PI, -0.273, -Math.PI]}
-        />
-        <mesh
-          geometry={nodes.Object_10.geometry}
-          material={materials.metal_black_stove}
-          position={[0.138, -0.907, 0.493]}
-          rotation={[0, -1.298, 0]}
-        />
-        <mesh
-          geometry={nodes.Object_12.geometry}
-          material={materials.metal_black_stove}
-          position={[0.493, -0.907, -0.138]}
-          rotation={[0, 0.273, 0]}
-        />
-        <mesh
-          geometry={nodes.Object_14.geometry}
-          material={materials.metal_black_stove}
-          position={[0, -0.943, 0]}
-          rotation={[0, 0.273, 0]}
-        />
-      </group>
+   
+        <group position={seat ? [4.9, 1.524, -0.684] : [4.062, 1.524, -0.684]}>
+          <mesh
+            geometry={nodes.Object_4.geometry}
+            material={materials.black_plactic_stove}
+          />
+          <mesh
+            geometry={nodes.Object_6.geometry}
+            material={materials.metal_black_stove}
+            position={[-0.138, -0.907, -0.493]}
+            rotation={[-Math.PI, 1.298, -Math.PI]}
+          />
+          <mesh
+            geometry={nodes.Object_8.geometry}
+            material={materials.metal_black_stove}
+            position={[-0.493, -0.907, 0.138]}
+            rotation={[-Math.PI, -0.273, -Math.PI]}
+          />
+          <mesh
+            geometry={nodes.Object_10.geometry}
+            material={materials.metal_black_stove}
+            position={[0.138, -0.907, 0.493]}
+            rotation={[0, -1.298, 0]}
+          />
+          <mesh
+            geometry={nodes.Object_12.geometry}
+            material={materials.metal_black_stove}
+            position={[0.493, -0.907, -0.138]}
+            rotation={[0, 0.273, 0]}
+          />
+          <mesh
+            geometry={nodes.Object_14.geometry}
+            material={materials.metal_black_stove}
+            position={[0, -0.943, 0]}
+            rotation={[0, 0.273, 0]}
+          />
+        </group>
+
       <group position={[4.062, 1.524, -2.856]} rotation={[0, 0.698, 0]}>
         <mesh
           geometry={nodes.Object_16.geometry}
@@ -87,6 +101,7 @@ const Kitchen = (props) => {
           rotation={[0, 0.273, 0]}
         />
       </group>
+
       {/* blinds */}
       <group position={[0.512, 6.897, -4.441]}>
         <mesh
