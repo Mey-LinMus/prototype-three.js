@@ -254,6 +254,7 @@ const Kitchen = (props) => {
           position={[0, 0.396, 0.67]}
           scale={1.376}
         />
+
         <mesh
           geometry={nodes.Object_75.geometry}
           material={materials.pink_gradient_pot_up}
