@@ -1,7 +1,7 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
 
-const Model = (props) => {
+const GLTFLoader  = (props) => {
   const { scene } = useGLTF(props.modelPath);
 
   return (
@@ -14,5 +14,5 @@ const Model = (props) => {
   );
 };
 
-export default Model;
+export default GLTFLoader;
  

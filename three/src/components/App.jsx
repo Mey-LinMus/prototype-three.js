@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars, Sky, Cloud } from "@react-three/drei";
-import Modelfile from "./Models";
+import CanvasContainer from "./CanvasContainer";
+import ModelLoader from "./ModelLoader";
 import "../styles/App.css";
 import VictorianHallway from "./gltfjsx/VictorianHallway";
 import UndergroundRoom from "./gltfjsx/UndergroundRoom";
 import CyberpunkRoom from "./gltfjsx/CyberpunkRoom";
-import HamburgerMenu from "./HamburgerMenu";
+import Kitchen from "./gltfjsx/Kitchen";
 
 const App = () => {
   const [selectedModel, setSelectedModel] = useState(null);
@@ -40,7 +39,7 @@ const App = () => {
         { name: "Victorian Hallway", path: <VictorianHallway /> },
         { name: "Underground Room", path: <UndergroundRoom /> },
         { name: "Cyberpunk Room", path: <CyberpunkRoom /> },
-        { name: "Modern Living", path: "models/modern_living_room.glb" },
+        { name: "Kitchen", path: <Kitchen /> },
       ],
     },
   ];
@@ -54,49 +53,13 @@ const App = () => {
 
   return (
     <div>
-      <HamburgerMenu albums={albums} loadModel={loadModel} />
-      <Canvas style={{ position: "absolute" }}>
-        <OrbitControls />
-
-        <Sky
-          distance={50000}
-          sunPosition={[0, 5, 0]}
-          inclination={1}
-          azimuth={0.5}
-        />
-
-        <Cloud
-          segments={90}
-          bounds={[100, 100, 100]}
-          volume={4}
-          color="#FEF9E7"
-          fade={600}
-        />
-
-        <ambientLight intensity={5.5} />
-        <Stars
-          radius={50}
-          depth={50}
-          count={5000}
-          factor={4}
-          saturation={0}
-          fade
-          speed={1}
-        />
-        {loadingError ? (
-          <div className="error-message">{loadingError}</div>
-        ) : (
-          selectedModel &&
-          (typeof selectedModel === "string" ? (
-            <Modelfile
-              modelPath={selectedModel}
-              onError={(error) => setLoadingError(error.message)}
-            />
-          ) : (
-            selectedModel
-          ))
-        )}
-      </Canvas>
+      <ModelLoader albums={albums} loadModel={loadModel} />
+      <CanvasContainer
+        selectedModel={selectedModel}
+        loadingError={loadingError}
+        setSelectedModel={setSelectedModel}
+        setLoadingError={setLoadingError}
+      />
     </div>
   );
 };

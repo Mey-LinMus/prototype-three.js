@@ -14,7 +14,7 @@ const CyberpunkRoom = (props) => {
     <>
       <Html className="text">
         <button onClick={toggleLights} className="action-button">
-          LightsOn
+          Lights On
         </button>
       </Html>
       <group {...props} dispose={null}>
