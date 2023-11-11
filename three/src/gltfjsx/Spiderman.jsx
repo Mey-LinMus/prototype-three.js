@@ -18,13 +18,13 @@ const Spiderman = (props) => {
   useEffect(() => {
     actions["Armature|Armature|hero_spiderman01_S08@hit|Base Layer"]
       .play()
-      .setDuration(2);
+      .setDuration(3);
     actions["Armature|Armature|hero_spiderman01_S08@die|Base Layer"]
       .play()
-      .setDuration(4);
+      .setDuration(2);
   }, [actions]);
 
-  console.log(animations);
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">

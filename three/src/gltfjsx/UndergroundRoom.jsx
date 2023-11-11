@@ -23,7 +23,7 @@ const UndergroundRoom = (props) => {
     <>
       <Html className="text">
         <button onClick={cleanRoom} className="action-button">
-          Clean
+        {cleanMess ? "Clean Mess" : "Make mess"}
         </button>
       </Html>
       <group {...props} dispose={null}>

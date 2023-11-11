@@ -1,8 +1,8 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
-import "../HamburgerMenu.css";
+import "../styles/HamburgerMenu.css";
 
-const HamburgerMenu = ({ albums,  loadModel }) => {
+const HamburgerMenu = ({ albums, loadModel }) => {
   return (
     <Menu right>
       {albums.map((album, albumIndex) => (
